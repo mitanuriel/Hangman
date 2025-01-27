@@ -35,18 +35,17 @@ while not game_over:
         for i, letter in enumerate(word):
             if letter == ans:
                 guesses[i] = ans
+    else:
+        lives -= 1
+        print("Incorrect guess, you lost a life.")
 
-        else:
-            lives -= 1
-            print("Incorrect guess, you lost a life")
+    if "_" not in guesses:
+        print("\nCongratulations, you won! You guessed the word: {}".format(word))
+        game_over = True
 
-        if "_" not in guesses:
-            print("\nCongratulations, you won! You guessed the word: {}".format(word))
-            game_over = True
-
-        if lives <= 0:
-            print("\nGame over. The word was {}".format(word))
-            game_over = True
+    if lives <= 0:
+        print("\nGame over. The word was {}".format(word))
+        game_over = True
 
 
 
