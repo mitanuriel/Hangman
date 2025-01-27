@@ -24,21 +24,35 @@ while not game_over:
         print("Invalid input. Please guess a single letter.")
         continue
 
+    if ans in guessed:
+        print("You already guessed that letter!")
+        continue
+
+    guessed.append(ans)
+
+    if ans in word:
+        print("Correct guess!")
+        for i, letter in enumerate(word):
+            if letter == ans:
+                guesses[i] = ans
+
+        else:
+            lives -= 1
+            print("Incorrect guess, you lost a life")
+
+        if "_" not in guesses:
+            print("\nCongratulations, you won! You guessed the word: {}".format(word))
+            game_over = True
+
+        if lives <= 0:
+            print("\nGame over. The word was {}".format(word))
+            game_over = True
 
 
-while not game_over:
-    hidden_word = "".join(guesses)
 
 
-ans = input( )
 
-game_over = True
-elif ans in word:
-print("You guessed correctly!")
-else:
-lives -= 1
-print("Incorrect, you lost a life.")
 
-ans = input()
-clear_output()
-if ans == 'quit':
+
+
+
