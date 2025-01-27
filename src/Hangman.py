@@ -7,15 +7,29 @@ guessed,lives,game_over = [ ],7, False
 guesses = ["_"] * len(word)
 
 while not game_over:
+    hidden_word = "".join(guesses)
+    print("\nWord to guess: {}".format(hidden_word))
+    print( "Lives: {}".format(lives))
+    print("Guessed letters: {}".format(", ".join(guessed)))
+
+
     ans = input("Type quit or guess a letter: ").lower()
+
     if ans == "quit":
         print("Thanks for playing.")
         game_over = True
+        continue
+
+    if len(ans) != 1 or not ans.isalpha():
+        print("Invalid input. Please guess a single letter.")
+        continue
+
+
 
 while not game_over:
     hidden_word = "".join(guesses)
-print("Word to guess: {}".format(hidden_word))
-print( "Lives: {}".format(lives))
+
+
 ans = input( )
 
 game_over = True
